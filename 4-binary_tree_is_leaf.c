@@ -1,22 +1,16 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_delete - creates a binary tree node
- *
- * @tree: pointer to tree
- *
+ * binary_tree_is_leaf - checks if a node is a leaf
+ * @node: pointer to the node to check
+ * Return: 1 if node is leaf, 0 otherwise or if node is NULL
  */
-void binary_tree_delete(binary_tree_t *tree)
+int binary_tree_is_leaf(const binary_tree_t *node)
 {
-	if (tree == NULL)
-		return;
-
-	if (tree->right != NULL)
-		binary_tree_delete(tree->right);
-
-	if (tree->left != NULL)
-
-		binary_tree_delete(tree->left);
-
-	free(tree);
+    if (!node)
+        return (0);
+    if (!node->left && !node->right)
+        return (1);
+    return (0);
 }
+
